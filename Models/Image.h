@@ -1,5 +1,5 @@
 //
-//  Text.h
+//  Image.h
 //  Notes_attempt2
 //
 //  Created by Matias Seibert on 8/16/12.
@@ -11,11 +11,11 @@
 
 @class Note;
 
-@interface Text : NSManagedObject
+@interface Image : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * page;
-@property (nonatomic, retain) NSNumber * paragraph;
-@property (nonatomic, retain) id string;
+@property (nonatomic, retain) id position;
+@property (nonatomic, retain) id imageData;
+@property (nonatomic, retain) NSNumber * onPage;
 @property (nonatomic, retain) Note *note;
 
 @end
