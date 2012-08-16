@@ -19,13 +19,6 @@
 @synthesize currentDocument = _currentDocument;
 @synthesize boldButton = _boldButton;
 @synthesize _bold;
--(void)dealloc{
-	[_textInputView release];
-	self.textInputView = nil;
-	[_boldButton release];
-	[_currentDocument release];
-	[super dealloc];
-}
 
 - (void)viewDidLoad
 {
@@ -87,8 +80,6 @@
 	[self.textInputView insertSubview:imageview aboveSubview:self.textInputView.textView];
 	
 	[self.popoverViewController dismissPopoverAnimated:YES];
-	[imageview release];
-	[panGR release];
 	NSLog(@"kjfdalsj");
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

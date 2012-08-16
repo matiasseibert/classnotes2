@@ -42,8 +42,8 @@
 			//_textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.userInteractionEnabled = YES;
 		
-		CTFontRef ctFont = CTFontCreateWithName((CFStringRef)_textView.font.fontName, _textView.font.pointSize, NULL);
-		self.attributes = [[NSMutableDictionary alloc]initWithObjectsAndKeys:(id)ctFont, (NSString *)kCTFontAttributeName
+		CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)_textView.font.fontName, _textView.font.pointSize, NULL);
+		self.attributes = [[NSMutableDictionary alloc]initWithObjectsAndKeys:(__bridge id)ctFont, (NSString *)kCTFontAttributeName
 						   , nil];
 		
 		
@@ -61,7 +61,6 @@
 		self.enablesReturnKeyAutomatically = NO;
 		self.spellCheckingType = UITextSpellCheckingTypeYes;
 		
-		[tapper release];
 		
 	}
 	NSLog(@"Input view init");
@@ -81,13 +80,6 @@
 }
 */
 
--(void)dealloc{
-	[_tokenizer release];
-	[_text release];
-	[_textView release];
-	[markedTextStyle release];
-	[super dealloc];
-}
 
 -(BOOL)canBecomeFirstResponder{
 	NSLog(@"Frame1 y %f h %f", self.frame.origin.y, self.frame.size.height);
@@ -137,7 +129,6 @@
 		NSAttributedString *newAttString = [[NSAttributedString alloc]initWithString:text attributes:self.attributes];
         
 		[_text insertAttributedString:newAttString atIndex:sel.location];     
-		[newAttString release];
         sel.location += text.length;
     }
 	NSLog(@"image count IV %d", [self.currentDocument.images count]);

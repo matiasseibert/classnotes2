@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600FD01615DD32B600ACADAF /* NotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 600FD01415DD32B600ACADAF /* NotesModel.xcdatamodeld */; };
+		600FD01E15DD396800ACADAF /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 600FD01D15DD396800ACADAF /* DataManager.m */; };
+		600FD02115DD51BE00ACADAF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 600FD02015DD51BE00ACADAF /* Note.m */; };
+		600FD02415DD51C800ACADAF /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 600FD02315DD51C800ACADAF /* Text.m */; };
+		600FD02715DD51D700ACADAF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 600FD02615DD51D700ACADAF /* Image.m */; };
+		60C5DF6815DC9E7F00A01B26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C5DF6715DC9E7F00A01B26 /* CoreData.framework */; };
 		DB38285D15DB52F50040E1F6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38285C15DB52F50040E1F6 /* MobileCoreServices.framework */; };
 		DB38286015DB57950040E1F6 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = DB38285F15DB57950040E1F6 /* Document.m */; };
 		DB775AED159803170099A7CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB775AEC159803170099A7CE /* UIKit.framework */; };
@@ -26,6 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600FD01515DD32B600ACADAF /* NotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesModel.xcdatamodel; sourceTree = "<group>"; };
+		600FD01C15DD396800ACADAF /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		600FD01D15DD396800ACADAF /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		600FD01F15DD51BE00ACADAF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		600FD02015DD51BE00ACADAF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		600FD02215DD51C800ACADAF /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
+		600FD02315DD51C800ACADAF /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Text.m; sourceTree = "<group>"; };
+		600FD02515DD51D700ACADAF /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		600FD02615DD51D700ACADAF /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		60C5DF6715DC9E7F00A01B26 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DB38285A15DB52C40040E1F6 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		DB38285C15DB52F50040E1F6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DB38285E15DB57950040E1F6 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -61,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C5DF6815DC9E7F00A01B26 /* CoreData.framework in Frameworks */,
 				DB38285D15DB52F50040E1F6 /* MobileCoreServices.framework in Frameworks */,
 				DB775B17159804280099A7CE /* CoreText.framework in Frameworks */,
 				DB775AED159803170099A7CE /* UIKit.framework in Frameworks */,
@@ -72,6 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60C5DF7A15DCA01000A01B26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				600FD02215DD51C800ACADAF /* Text.h */,
+				600FD02315DD51C800ACADAF /* Text.m */,
+				600FD01C15DD396800ACADAF /* DataManager.h */,
+				600FD01D15DD396800ACADAF /* DataManager.m */,
+				600FD01415DD32B600ACADAF /* NotesModel.xcdatamodeld */,
+				600FD02515DD51D700ACADAF /* Image.h */,
+				600FD02615DD51D700ACADAF /* Image.m */,
+				600FD01F15DD51BE00ACADAF /* Note.h */,
+				600FD02015DD51BE00ACADAF /* Note.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DB15B4AF1599079200E53B63 /* TWViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +119,7 @@
 		DB775ADD159803170099A7CE = {
 			isa = PBXGroup;
 			children = (
+				60C5DF7A15DCA01000A01B26 /* Models */,
 				DB775AF2159803170099A7CE /* Notes_attempt2 */,
 				DB775AEB159803170099A7CE /* Frameworks */,
 				DB775AE9159803170099A7CE /* Products */,
@@ -103,6 +137,7 @@
 		DB775AEB159803170099A7CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60C5DF6715DC9E7F00A01B26 /* CoreData.framework */,
 				DB38285C15DB52F50040E1F6 /* MobileCoreServices.framework */,
 				DB38285A15DB52C40040E1F6 /* CoreImage.framework */,
 				DB775B16159804280099A7CE /* CoreText.framework */,
@@ -226,6 +261,11 @@
 				DB775B14159803320099A7CE /* TWTextView.m in Sources */,
 				DB775B2B1598BD970099A7CE /* TWTextAttribute.m in Sources */,
 				DB38286015DB57950040E1F6 /* Document.m in Sources */,
+				600FD01615DD32B600ACADAF /* NotesModel.xcdatamodeld in Sources */,
+				600FD01E15DD396800ACADAF /* DataManager.m in Sources */,
+				600FD02115DD51BE00ACADAF /* Note.m in Sources */,
+				600FD02415DD51C800ACADAF /* Text.m in Sources */,
+				600FD02715DD51D700ACADAF /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +339,7 @@
 		DB775B07159803170099A7CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notes_attempt2/Notes_attempt2-Prefix.pch";
 				INFOPLIST_FILE = "Notes_attempt2/Notes_attempt2-Info.plist";
@@ -310,6 +351,7 @@
 		DB775B08159803170099A7CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notes_attempt2/Notes_attempt2-Prefix.pch";
 				INFOPLIST_FILE = "Notes_attempt2/Notes_attempt2-Info.plist";
@@ -340,6 +382,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		600FD01415DD32B600ACADAF /* NotesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				600FD01515DD32B600ACADAF /* NotesModel.xcdatamodel */,
+			);
+			currentVersion = 600FD01515DD32B600ACADAF /* NotesModel.xcdatamodel */;
+			name = NotesModel.xcdatamodeld;
+			path = ../Notes_attempt2/NotesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB775ADF159803170099A7CE /* Project object */;
 }

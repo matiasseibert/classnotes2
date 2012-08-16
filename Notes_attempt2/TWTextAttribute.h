@@ -11,7 +11,7 @@
 @interface TWTextAttribute : NSObject
 
 @property (nonatomic, copy) NSString *attributeKey;
-@property (nonatomic, assign)id attribute;
+@property (nonatomic, weak)id attribute;
 @property (nonatomic)NSInteger start;
 @property (nonatomic)NSInteger length;
 

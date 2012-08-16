@@ -22,8 +22,4 @@
 }
 
 
--(void)dealloc{
-	[super dealloc];
-	[_images release];
-}
 @end

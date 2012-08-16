@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 
+
 @interface DataManager ()
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -32,26 +33,37 @@
     
     NSManagedObjectContext *managedObjectContext = [dataManager managedObjectContext];
         
-    Show *show = [NSEntityDescription insertNewObjectForEntityForName:@"Show" inManagedObjectContext:managedObjectContext];
-    show.name = @"Example Show";
+//    Show *show = [NSEntityDescription insertNewObjectForEntityForName:@"Show" inManagedObjectContext:managedObjectContext];
+//    show.name = @"Example Show";
+//    
+//    Console *console = [NSEntityDescription insertNewObjectForEntityForName:@"Console" inManagedObjectContext:managedObjectContext];    
+//    console.name = @"A&H GL2800";
+//    console.maxChannels = [NSNumber numberWithInt:48];
+//    console.numOutputs = [NSNumber numberWithInt:16];
+//    console.show = show;
+//    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"microphones" ofType:@"plist"];
+//    NSArray *plistArray = [NSArray arrayWithContentsOfFile:path];
+//    
+//    for (NSDictionary *item in plistArray) {
+//        Microphone *newMic = [NSEntityDescription insertNewObjectForEntityForName:@"Microphone" inManagedObjectContext:managedObjectContext];
+//        newMic.name = [item objectForKey:@"name"];
+//        newMic.type = [item objectForKey:@"type"];
+//        newMic.image = [UIImage imageNamed:[item objectForKey:@"image"]];
+//        newMic.needsPhantom = [item objectForKey:@"needsPhantom"];
+//    }
+    Note *firstNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:managedObjectContext];
+    firstNote.title = @"Sample Note";
+    firstNote.date = [NSDate date];
     
-    Console *console = [NSEntityDescription insertNewObjectForEntityForName:@"Console" inManagedObjectContext:managedObjectContext];    
-    console.name = @"A&H GL2800";
-    console.maxChannels = [NSNumber numberWithInt:48];
-    console.numOutputs = [NSNumber numberWithInt:16];
-    console.show = show;
+    Text *loremIpsum = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:managedObjectContext];
+    loremIpsum.note = firstNote;
+    NSAttributedString *lorem = [[NSAttributedString alloc] initWithString:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis erat in justo facilisis congue at non dui. Ut suscipit aliquet purus, et vestibulum tortor lacinia ac. Morbi sapien tellus, tempor in cursus a, cursus tempus tortor. Fusce rutrum rutrum tortor pretium aliquam. Nam augue diam, scelerisque nec posuere non, tristique id velit. Praesent vel erat dolor. Vestibulum sit amet ligula eget diam feugiat consequat. Sed in nunc leo. Praesent et dui felis. Nullam fermentum iaculis ante et placerat. Aliquam rutrum, mi vel viverra ullamcorper, sem neque tincidunt justo, quis pulvinar est dui ac mi. Nulla id nibh risus. Maecenas porttitor iaculis odio, ac commodo sem placerat quis. Mauris at lectus sit amet risus faucibus mattis. Maecenas venenatis vehicula ultricies."];
+    loremIpsum.string = lorem;
+    loremIpsum.page = [NSNumber numberWithInt:1];
+    loremIpsum.paragraph = [NSNumber numberWithInt:1];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"microphones" ofType:@"plist"];
-    NSArray *plistArray = [NSArray arrayWithContentsOfFile:path];
     
-    for (NSDictionary *item in plistArray) {
-        Microphone *newMic = [NSEntityDescription insertNewObjectForEntityForName:@"Microphone" inManagedObjectContext:managedObjectContext];
-        newMic.name = [item objectForKey:@"name"];
-        newMic.type = [item objectForKey:@"type"];
-        newMic.image = [UIImage imageNamed:[item objectForKey:@"image"]];
-        newMic.needsPhantom = [item objectForKey:@"needsPhantom"];
-    }
-
     [dataManager saveContext];
 }
 
@@ -118,7 +130,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"IO_Manager" ofType:@"momd"];
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"NotesModel" ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return _managedObjectModel;
@@ -147,7 +159,7 @@
 }
 
 - (NSString *)databasePath {
-	return [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"IO_Manager.sqlite"];
+	return [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"NotesModel.sqlite"];
 }
 
 - (BOOL)databaseExists {
@@ -193,6 +205,7 @@
 #pragma mark - Public Methods
 
 // Get a show object by name:
+/*
 - (Show *)getShowByName:(NSString *)name {
     DataManager *dataManager = [DataManager sharedInstance];
     NSPredicate *showPredicate = [NSPredicate predicateWithFormat:@"name == %@", name];
@@ -755,6 +768,6 @@
     [dataManager.managedObjectContext deleteObject:input];
     [dataManager saveContext];
 }
-
+*/
 
 @end

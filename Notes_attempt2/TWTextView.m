@@ -66,8 +66,7 @@
 
 -(void)setText:(NSMutableAttributedString *)text{
 	NSMutableAttributedString *oldstring = _text;
-	_text = [text retain];
-	[oldstring release];
+	_text = text;
 	[self textChanged];
 }
 
@@ -84,7 +83,7 @@
 	NSLog(@"at:%@", [_text mutableString]);
 	
 	
-	_frameSetter = CTFramesetterCreateWithAttributedString((CFMutableAttributedStringRef)_text);
+	_frameSetter = CTFramesetterCreateWithAttributedString((__bridge CFMutableAttributedStringRef)_text);
 	
 	UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.bounds];
 	NSLog(@"images count %d", [self.images count]);
@@ -110,7 +109,7 @@
 		// Use Core Text to find the text index for a given CGPoint by
 		// iterating over the y-origin points for each line, finding the closest
 		// line, and finding the closest index within that line.
-    NSArray *lines = (NSArray *) CTFrameGetLines(_frameRef);
+    NSArray *lines = (__bridge NSArray *) CTFrameGetLines(_frameRef);
     CGPoint origins[lines.count];
     CTFrameGetLineOrigins(_frameRef, CFRangeMake(0, lines.count), origins);
     
@@ -118,7 +117,7 @@
         if (point.y > origins[i].y) {
 				// This line origin is closest to the y-coordinate of our point,
 				// now look for the closest string index in this line.
-            CTLineRef line = (CTLineRef) [lines objectAtIndex:i];
+            CTLineRef line = (__bridge CTLineRef) [lines objectAtIndex:i];
             return CTLineGetStringIndexForPosition(line, point);
 			
         }
@@ -132,7 +131,7 @@
 	// when creating or updating our SimpleCaretView instance
 - (CGRect)caretRectForIndex:(int)index
 {    	
-    NSArray *lines = (NSArray *) CTFrameGetLines(_frameRef);
+    NSArray *lines = (__bridge NSArray *) CTFrameGetLines(_frameRef);
     
 		// Special case, no text
     if (_text.length == 0) {
@@ -143,7 +142,7 @@
     
 		// Special case, insertion point at final position in text after newline
     if (index == _text.length && [[_text mutableString]characterAtIndex:(index - 1)] == '\n') {
-        CTLineRef line = (CTLineRef) [lines lastObject];
+        CTLineRef line = (__bridge CTLineRef) [lines lastObject];
         CFRange range = CTLineGetStringRange(line);
         CGFloat xPos = CTLineGetOffsetForStringIndex(line, range.location, NULL);
         CGPoint origin;
@@ -157,7 +156,7 @@
 	
 		// Regular case, caret somewhere within our text content range
     for (int i = 0; i < [lines count]; i++) {
-        CTLineRef line = (CTLineRef) [lines objectAtIndex:i];
+        CTLineRef line = (__bridge CTLineRef) [lines objectAtIndex:i];
         CFRange range = CTLineGetStringRange(line);
         NSInteger localIndex = index - range.location;
         if (localIndex >= 0 && localIndex <= range.length) {
@@ -183,9 +182,9 @@
     NSInteger index = range.location;
     
 		// Iterate over our CTLines, looking for the line that encompasses the given range
-    NSArray *lines = (NSArray *) CTFrameGetLines(_frameRef);
+    NSArray *lines = (__bridge NSArray *) CTFrameGetLines(_frameRef);
     for (int i = 0; i < [lines count]; i++) {
-        CTLineRef line = (CTLineRef) [lines objectAtIndex:i];
+        CTLineRef line = (__bridge CTLineRef) [lines objectAtIndex:i];
         CFRange lineRange = CTLineGetStringRange(line);
         NSInteger localIndex = index - lineRange.location;
         if (localIndex >= 0 && localIndex < lineRange.length) {
@@ -208,10 +207,7 @@
 
 
 -(void)dealloc{
-	[_text release];
 	self.text = nil;
-	[_images release];
-	[super dealloc];
 }
 
 @end

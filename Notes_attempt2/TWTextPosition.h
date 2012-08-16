@@ -10,7 +10,7 @@
 
 @interface TWTextPosition : UITextPosition
 @property (nonatomic)NSUInteger index;
-@property (nonatomic, assign)id<UITextInputDelegate> inputDelegate;
+@property (nonatomic, weak)id<UITextInputDelegate> inputDelegate;
 
 +(TWTextPosition *)positionWithIndex:(NSUInteger)index;
 @end

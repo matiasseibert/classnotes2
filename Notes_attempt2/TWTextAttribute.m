@@ -31,9 +31,4 @@
 	return self;
 }
 
--(void)dealloc{
-	[_attributeKey release];
-	self.attributeKey = nil;
-	[super dealloc];
-}
 @end

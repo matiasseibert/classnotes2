@@ -12,10 +12,10 @@
 
 @interface ViewController : UIViewController <UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, retain)IBOutlet TWInputView *textInputView;
-@property (nonatomic, retain)Document *currentDocument;
+@property (nonatomic, strong)IBOutlet TWInputView *textInputView;
+@property (nonatomic, strong)Document *currentDocument;
 
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *boldButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *boldButton;
 @property (strong, nonatomic)UIPopoverController *popoverViewController;
 
 - (IBAction)imagePicker:(id)sender;

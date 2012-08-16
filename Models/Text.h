@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * page;
 @property (nonatomic, retain) NSNumber * paragraph;
-@property (nonatomic, retain) id string;
+@property (nonatomic, retain) NSAttributedString * string;
 @property (nonatomic, retain) Note *note;
 
 @end

@@ -17,19 +17,19 @@
 
 @interface TWInputView : UIView <UITextInput, UITextInputTraits>
 
-@property (nonatomic, retain)TWTextView *textView;
-@property (nonatomic, retain)NSMutableDictionary *attributes;
-@property (nonatomic, retain)Document *currentDocument;
+@property (nonatomic, strong)TWTextView *textView;
+@property (nonatomic, strong)NSMutableDictionary *attributes;
+@property (nonatomic, strong)Document *currentDocument;
 
 	//Text Input stuff
 @property (nonatomic, copy)NSMutableAttributedString *text;
-@property (nonatomic, assign)id<UITextInputDelegate> inputDelegate;
+@property (nonatomic, weak)id<UITextInputDelegate> inputDelegate;
 @property (nonatomic, readonly) id<UITextInputTokenizer> tokenizer;
 @property (nonatomic) UITextStorageDirection sectionAffinity;
-@property (nonatomic, readonly)TWTextPosition *beginningOfDocument;
-@property (nonatomic, readonly)TWTextPosition *endOfDocument;
+@property (weak, nonatomic, readonly)TWTextPosition *beginningOfDocument;
+@property (weak, nonatomic, readonly)TWTextPosition *endOfDocument;
 @property (readwrite, copy)TWTextRange *selectedTextRange;
-@property (nonatomic, readonly)TWTextRange *markedTextRange;
+@property (weak, nonatomic, readonly)TWTextRange *markedTextRange;
 
 	//text input traits - Protocol
 

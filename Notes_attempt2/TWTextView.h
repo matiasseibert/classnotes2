@@ -17,15 +17,15 @@
 @property (nonatomic, readwrite)NSRange selectedTextRange;
 @property (nonatomic, readwrite)NSRange markedTextRange;
 	//@property (nonatomic, retain)NSMutableAttributedString *attText;
-@property (nonatomic, retain)NSMutableAttributedString *text;
-@property (nonatomic, retain)UIFont *font;
-@property (nonatomic, retain)NSMutableDictionary *attributes;
+@property (nonatomic, strong)NSMutableAttributedString *text;
+@property (nonatomic, strong)UIFont *font;
+@property (nonatomic, strong)NSMutableDictionary *attributes;
 
 @property (nonatomic)CTFrameRef frameRef;
 @property (nonatomic)CTFramesetterRef frameSetter;
 
 @property (nonatomic)BOOL editing;
-@property (nonatomic, retain)NSMutableArray *images;
+@property (nonatomic, strong)NSMutableArray *images;
 
 -(void)textChanged;
 

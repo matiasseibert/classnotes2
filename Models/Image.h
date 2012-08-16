@@ -14,7 +14,7 @@
 @interface Image : NSManagedObject
 
 @property (nonatomic, retain) id position;
-@property (nonatomic, retain) id imageData;
+@property (nonatomic, retain) UIImage * imageData;
 @property (nonatomic, retain) NSNumber * onPage;
 @property (nonatomic, retain) Note *note;
 
